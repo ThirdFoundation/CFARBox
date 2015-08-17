@@ -1,1 +1,3 @@
-This is an Angular skeleton for a single-page app with five default views, each containing five sub-pages beneath that.  It can be tweaked and generalized and cannibalized into a number of flexible Angular applications.
+This is some HACKED TOGETHER code to run a few very simple operations during a locked-room puzzle for 12-20 participants.  Essentially, it's a place for people to grab hints, check answers, and occasionally feel uneasy about the robot.
+
+Please don't judge me.  Had to get it done, very little time, very little sleep.  I only know like 10% of the rules to begin with, and I broke like twenty of those.
