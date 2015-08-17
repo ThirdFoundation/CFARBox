@@ -1,0 +1,62 @@
+<section class="container_1080">
+	<div class="clear_50"></div>
+	<div id="hold_green_and_yellow">
+		<div id="hold_green_simon">
+			<span id="green_simon_text" class="mont thin small">The area is:</span>
+			<input class="large_input" id="green_simon" ng-model="green" placeholder="100">
+			<button class="big button simon_submit" ng-click="submitGreen()" ng-disabled="greenWrong" ng-hide="greenAnswered">Submit</button>
+			<span class="mont thin tiny small_warning" ng-show="greenWrong">{{greenWarning}}</span>
+		</div>
+		<div id="hold_yellow_simon">
+			<span id="yellow_simon_text1" class="mont thin small">If it is</span>
+				<select ng-model="yel1">
+					<option class="mont thin small" value="true">true</option>
+					<option class="mont thin small" value="false">false</option>
+				</select>
+			<span id="yellow_simon_text2" class="mont thin small">that one</span>
+				<select ng-model="yel2">
+					<option class="mont thin small" value="snkl">is a Snickle</option>
+					<option class="mont thin small" value="emel">emulates Elmonacs</option>
+					<option class="mont thin small" value="snep">tends to sneep</option>
+					<option class="mont thin small" value="honh">hungers on holidays</option>
+					<option class="mont thin small" value="knng">knocks on noggins</option>
+					<option class="mont thin small" value="hork">is a Hork</option>
+					<option class="mont thin small" value="ccng">caters to Congalopes</option>
+					<option class="mont thin small" value="bbld">has Balthu blood</option>
+					<option class="mont thin small" value="bobo">bolts when bothered</option>
+					<option class="mont thin small" value="prps">prefers pistachios</option>
+				</select>
+			<span id="yellow_simon_text3" class="mont thin small">,</span><br>
+			<span id="yellow_simon_text4" class="mont thin small">then it is</span>
+				<select ng-model="yel3">
+					<option class="mont thin small" value="true">true</option>
+					<option class="mont thin small" value="false">false</option>
+				</select>
+			<span id="yellow_simon_text5" class="mont thin small">that one</span>
+				<select ng-model="yel4">
+					<option class="mont thin small" value="snkl">is a Snickle</option>
+					<option class="mont thin small" value="emel">emulates Elmonacs</option>
+					<option class="mont thin small" value="snep">tends to sneep</option>
+					<option class="mont thin small" value="honh">hungers on holidays</option>
+					<option class="mont thin small" value="knng">knocks on noggins</option>
+					<option class="mont thin small" value="hork">is a Hork</option>
+					<option class="mont thin small" value="ccng">caters to Congalopes</option>
+					<option class="mont thin small" value="bbld">has Balthu blood</option>
+					<option class="mont thin small" value="bobo">bolts when bothered</option>
+					<option class="mont thin small" value="prps">prefers pistachios</option>
+				</select>
+			<span id="yellow_simon_text6" class="mont thin small">.</span>
+			<button class="big button simon_submit" ng-click="submitYellow()" ng-disabled="yellowWrong" ng-hide="yellowAnswered">Submit</button>
+			<span class="mont thin tiny small_warning" ng-show="yellowWrong">{{yellowWarning}}</span>
+		</div>
+	</div>
+	<div id="hold_simon">
+		<img id="simon" src="img/simon.png">
+		<img id="greenshade" ng-hide="greenAnswered" src="img/shade.png">
+		<img id="redshade" ng-hide="redAnswered" src="img/shade.png">
+		<img id="blueshade" ng-hide="blueAnswered" src="img/shade.png">
+		<img id="yellowshade" ng-hide="yellowAnswered" src="img/shade.png">
+	</div>
+	<div id="hold_red_and_blue">
+	</div>
+</section>

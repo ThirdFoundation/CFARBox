@@ -1,0 +1,1 @@
+This is an Angular skeleton for a single-page app with five default views, each containing five sub-pages beneath that.  It can be tweaked and generalized and cannibalized into a number of flexible Angular applications.
