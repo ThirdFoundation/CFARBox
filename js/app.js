@@ -65,6 +65,8 @@ cfarBox.controller('CipherController', ['$scope', '$routeParams', '$location', '
 
 cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$timeout', function($scope, $routeParams, $location, $timeout) {
     $scope.view = $routeParams.view;
+    $scope.dimDan = true;
+    $scope.haveHelpedDan = false;
     $scope.greenAnswered = false;
     $scope.greenWrong = false;
     $scope.greenTries = 0;
@@ -80,7 +82,7 @@ cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$
     $scope.submitGreen = function() {
       $scope.toggleGreen = function() {$scope.greenWrong = !$scope.greenWrong};
       $scope.greenTries++;
-      if ($scope.green === 37) {
+      if ($scope.green === "37") {
         $scope.greenAnswered = true;
       } else {
         $scope.greenWait = 15 * Math.pow(2, $scope.greenTries);
@@ -92,7 +94,23 @@ cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$
     $scope.submitRed = function() {
       $scope.toggleRed = function() {$scope.redWrong = !$scope.redWrong};
       $scope.redTries++;
-      if ($scope.red === 37) {
+      $scope.redCorrect = true;
+      if ($scope.red1 !== "1") {
+        $scope.redCorrect = false;
+      }
+      if ($scope.red2 !== "9") {
+        $scope.redCorrect = false;
+      }
+      if ($scope.red3 !== "6") {
+        $scope.redCorrect = false;
+      }
+      if ($scope.red4 !== "8") {
+        $scope.redCorrect = false;
+      }
+      if ($scope.red5 !== "3") {
+        $scope.redCorrect = false;
+      }
+      if ($scope.redCorrect) {
         $scope.redAnswered = true;
       } else {
         $scope.redWait = 15 * Math.pow(2, $scope.redTries);
@@ -104,7 +122,20 @@ cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$
     $scope.submitBlue = function() {
       $scope.toggleBlue = function() {$scope.blueWrong = !$scope.blueWrong};
       $scope.blueTries++;
-      if ($scope.blue === 37) {
+     $scope.blueCorrect = true;
+      if ($scope.blue1 !== "d") {
+        $scope.blueCorrect = false;
+      }
+      if ($scope.blue2 !== "c") {
+        $scope.blueCorrect = false;
+      }
+      if ($scope.blue3 !== "a") {
+        $scope.blueCorrect = false;
+      }
+      if ($scope.blue4 !== "b") {
+        $scope.blueCorrect = false;
+      }
+      if ($scope.blueCorrect) {
         $scope.blueAnswered = true;
       } else {
         $scope.blueWait = 15 * Math.pow(2, $scope.blueTries);
@@ -116,42 +147,26 @@ cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$
     $scope.submitYellow = function() {
       $scope.toggleYellow = function() {$scope.yellowWrong = !$scope.yellowWrong};
       $scope.yellowTries++;
-      $scope.delayYellow = function() {
+      $scope.yellowCorrect = true;
+      if ($scope.yel1 !== "true") {
+        $scope.yellowCorrect = false;
+      }
+      if ($scope.yel3 !== "false") {
+        $scope.yellowCorrect = false;
+      }
+      $scope.conclusion = ($scope.yel2 === "hork" && $scope.yel4 === "honh");
+      $scope.contrapos = ($scope.yel2 === "honh" && $scope.yel4 === "hork");
+      if (!$scope.conclusion && !$scope.contrapos) {
+        $scope.yellowCorrect = false;
+      }
+      if ($scope.yellowCorrect) {
+        $scope.yellowAnswered = true;
+      } else {
         $scope.yellowWait = 15 * Math.pow(2, $scope.yellowTries);
         $scope.yellowWarning = "INCORRECT. Submissions disabled for " + $scope.yellowWait + " seconds.";
         $scope.toggleYellow();
         $timeout($scope.toggleYellow, $scope.yellowWait*1000);
       }
-      $scope.delayYellow();
-
-
-
-
-      // if ($scope.yel1 === true &&
-      //     $scope.yel2 === "hork" &&
-      //     $scope.yel3 === false &&
-      //     $scope.yel4 === "honh") {
-      //   $scope.yellowAnswered = true;
-      // } else if ($scope.yel1 === true &&
-      //     $scope.yel2 === "honh" &&
-      //     $scope.yel3 === false &&
-      //     $scope.yel4 === "hork") {
-      //   $scope.yellowAnswered = true;
-      // } else {
-      //   alert("nope!");
-      // }
-
-
-
-
-
-      //   $scope.yellowAnswered = true;
-      // } else {
-      //   $scope.yellowWait = 15 * Math.pow(2, $scope.yellowTries);
-      //   $scope.yellowWarning = "INCORRECT. Submissions disabled for " + $scope.yellowWait + " seconds.";
-      //   $scope.toggleYellow();
-      //   $timeout($scope.toggleYellow, $scope.yellowWait*1000);
-      // }
     }
 }]);
 

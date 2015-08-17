@@ -26,6 +26,15 @@
 	height: 150px;
 	width: 1080px;
 }
+#hold_dan_simon {
+	display: block;
+	position: relative;
+	top: -50px;
+	padding: 5px 0px 5px 0px;
+	margin: 15px 0px 5px 0px;
+	height: 150px;
+	width: 1080px;
+}
 #hold_words {
 	display: inline-block;
 	height: 90px;
@@ -56,10 +65,10 @@
 }
 #hold_simon {
 	position: relative;
-	top: -200px;
+	top: -100px;
 	display: inline-block;
 	width: 490px;
-	height: 600px;
+	height: 500px;
 	margin: 0px auto 0px auto;
 }
 #simon {
@@ -81,7 +90,7 @@
 }
 #blueshade {
 	position: absolute;
-	bottom: 243px;
+	bottom: 143px;
 	right: 94px;
 	width: 150px;
 	height: 149px;
@@ -89,7 +98,7 @@
 }
 #yellowshade {
 	position: absolute;
-	bottom: 243px;
+	bottom: 143px;
 	left: 84px;
 	width: 151px;
 	height: 150px;
@@ -99,13 +108,13 @@
 	position: relative;
 	display: inline-block;
 	width: 275px;
-	height: 600px;
+	height: 500px;
 }
 #hold_red_and_blue {
 	position: relative;
 	display: inline-block;
 	width: 275px;
-	height: 600px;
+	height: 500px;
 }
 #hold_green_simon {
 	position: absolute;
@@ -115,6 +124,16 @@
 #hold_yellow_simon {
 	position: absolute;
 	top: 318px;
+}
+#hold_red_simon {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+}
+#hold_blue_simon {
+	position: absolute;
+	top: 337px;
+	left: 27px;
 }
 .large_input {
 	font-family: 'montserrat'; sans-serif;
@@ -130,6 +149,24 @@
 	background-color: rgba(0, 0, 0, 0.4);
 	margin-right: 10px;
 }
+.by_five_input {
+	font-family: 'montserrat'; sans-serif;
+	font-size: 24pt;
+	color: white;
+	padding: 0px 0px 0px 4px;
+	display: block;
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 28px;
+}
+.by_four_input {
+	font-family: 'montserrat'; sans-serif;
+	font-size: 24pt;
+	color: white;
+	padding: 0px 0px 0px 12px;
+	display: block;
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 30px;
+}
 #first_break {
 	width: 100px;
 	margin: 12px 10px 10px 0px;
@@ -144,7 +181,7 @@
 	width: ;
 }
 .simon_submit {
-	margin-top: 5px;
+	margin-top: 10px;
 }
 .clear_10 {
 	display: block;
@@ -174,4 +211,47 @@
 }
 .small_warning {
 	display: block;
+}
+.var_and_val {
+	display: inline-block;
+	width: 28px;
+	margin: 0px 15px 5px 0px;
+}
+.mult_choice {
+	display: inline-block;
+	width: 38px;
+	margin: 0px 15px 0px 0px;
+}
+.one_letter {
+	width: 34px;
+}
+.two_letter {
+	width: 38px;
+	margin-left: 5px;
+}
+.in_red_line {
+	width: 250px;
+	min-height: 20px;
+}
+#red_button {
+	float: right;
+	display: block;
+	margin: 0px 25px 10px 50px;
+}
+#red_warn {
+	display: block;
+	width: 200px;
+	margin-left: 20px;
+	text-align: right;
+}
+#blue_warn {
+	display: block;
+	width: 200px;
+	margin-left: 20px;
+	text-align: right;
+}
+#blue_button {
+	float: right;
+	display: block;
+	margin: 10px 32px 10px 50px;
 }

@@ -1,6 +1,7 @@
 <section class="container_1080">
 	<div class="clear_50"></div>
-	<div id="hold_green_and_yellow">
+	<div class="clear_10"></div>
+	<div id="hold_green_and_yellow" ng-mouseenter="dimDan = true">
 		<div id="hold_green_simon">
 			<span id="green_simon_text" class="mont thin small">The area is:</span>
 			<input class="large_input" id="green_simon" ng-model="green" placeholder="100">
@@ -50,13 +51,80 @@
 			<span class="mont thin tiny small_warning" ng-show="yellowWrong">{{yellowWarning}}</span>
 		</div>
 	</div>
-	<div id="hold_simon">
+	<div id="hold_simon" ng-mouseenter="dimDan = true">
 		<img id="simon" src="img/simon.png">
 		<img id="greenshade" ng-hide="greenAnswered" src="img/shade.png">
 		<img id="redshade" ng-hide="redAnswered" src="img/shade.png">
 		<img id="blueshade" ng-hide="blueAnswered" src="img/shade.png">
 		<img id="yellowshade" ng-hide="yellowAnswered" src="img/shade.png">
 	</div>
-	<div id="hold_red_and_blue">
+	<div id="hold_red_and_blue" ng-mouseenter="dimDan = true">
+		<div id="hold_red_simon">
+			<div class="var_and_val">
+				<input class="by_five_input" placeholder="#" ng-model="red1">
+				<span class="mont thin small center one_letter">T</span>
+			</div>
+			<div class="var_and_val">
+				<input class="by_five_input" placeholder="#" ng-model="red2">
+				<span class="mont thin small center one_letter">H</span>
+			</div>
+			<div class="var_and_val">
+				<input class="by_five_input" placeholder="#" ng-model="red3">
+				<span class="mont thin small center one_letter">I</span>
+			</div>
+			<div class="var_and_val">
+				<input class="by_five_input" placeholder="#" ng-model="red4">
+				<span class="mont thin small center one_letter">N</span>
+			</div>
+			<div class="var_and_val">
+				<input class="by_five_input" placeholder="#" ng-model="red5">
+				<span class="mont thin small center one_letter">K</span>
+			</div>
+			<div class="in_red_line">
+				<button class="big button simon_submit" id="red_button" ng-click="submitRed()" ng-disabled="redWrong" ng-hide="redAnswered">Submit</button>
+			</div>
+			<div class="in_red_line">
+				<span class="mont thin tiny small_warning" id="red_warn" ng-show="redWrong">{{redWarning}}</span>
+			</div>
+		</div>
+		<div id="hold_blue_simon">
+			<div class="mult_choice">
+				<input class="by_four_input" placeholder="e" ng-model="blue1">
+				<span class="mont thin small center two_letter">Q1</span>
+			</div>
+			<div class="mult_choice">
+				<input class="by_four_input" placeholder="e" ng-model="blue2">
+				<span class="mont thin small center two_letter">Q2</span>
+			</div>
+			<div class="mult_choice">
+				<input class="by_four_input" placeholder="e" ng-model="blue3">
+				<span class="mont thin small center two_letter">Q3</span>
+			</div>
+			<div class="mult_choice">
+				<input class="by_four_input" placeholder="e" ng-model="blue4">
+				<span class="mont thin small center two_letter">Q4</span>
+			</div>
+			<div class="in_red_line">
+				<button class="big button simon_submit" id="blue_button" ng-click="submitBlue()" ng-disabled="blueWrong" ng-hide="blueAnswered">Submit</button>
+			</div>
+			<div class="in_red_line">
+				<span class="mont thin tiny small_warning" id="blue_warn" ng-show="blueWrong">{{blueWarning}}</span>
+			</div>
+		</div>
+	</div>
+	<div id="hold_dan_simon"
+				ng-class="{faded: dimDan, test_white: true}"
+				ng-mouseenter="dimDan = false">
+		<img id="dan_small" src="img/daniel.png">
+		<div id="hold_words" ng-hide="dimDan">
+			<span class="mont thin small">{{danMsg}}</span>
+		</div>
+		<div id="hold_graphics" ng-hide="dimDan || haveHelpedDan">
+			<img id="captcha" src="img/captcha.png">
+		</div>
+		<div id="hold_buttons" ng-hide="dimDan || haveHelpedDan">
+			<input id="first_break" class="tiny_input" ng-model="hint1">
+			<button id="first_break_submit" class="little button" ng-click="submitCaptcha()">Submit</button>
+		</div>
 	</div>
 </section>
