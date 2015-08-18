@@ -75,3 +75,10 @@ select {
 	border: 1px solid white;
 	color: white;
 }
+#cipher_submit {
+  -webkit-animation-delay: .6s;
+}
+#dan_intro {
+	-webkit-animation-delay: 1.2s;
+	-webkit-animation-duration: 2.5s;
+}

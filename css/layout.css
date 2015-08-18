@@ -35,6 +35,65 @@
 	height: 150px;
 	width: 1080px;
 }
+#simon_hold_dan {
+	display: inline-block;
+	position: absolute;
+	height: 120px;
+	width: 100px;
+	margin: 10px 5px 0px 0px;
+}
+#simon_hold_words {
+	display: inline-block;
+	position: absolute;
+	left: 115px;
+	height: 140px;
+	width: 500px;
+	margin: 0px 10px 0px 0px;
+}
+#simon_hold_graphics_green {
+	display: inline-block;
+	background-image: url(../img/simonHintGreen.png);
+	background-size: 280px 130px;
+	position: absolute;
+	left: 620px;
+	bottom: -2px;
+	height: 130px;
+	width: 280px;
+	margin: 10px;
+}
+#simon_hold_graphics_red {
+	display: inline-block;
+	background-image: url(../img/simonHintRed.png);
+	background-size: 280px 130px;
+	position: absolute;
+	left: 620px;
+	bottom: -2px;
+	height: 130px;
+	width: 280px;
+	margin: 10px;
+}
+#simon_hold_graphics_blue {
+	display: inline-block;
+	background-image: url(../img/simonHintBlue.png);
+	background-size: 280px 130px;
+	position: absolute;
+	left: 620px;
+	bottom: -2px;
+	height: 130px;
+	width: 280px;
+	margin: 10px;
+}
+#simon_hold_graphics_yellow {
+	display: inline-block;
+	background-image: url(../img/simonHintYellow.png);
+	background-size: 280px 130px;
+	position: absolute;
+	left: 620px;
+	bottom: -2px;
+	height: 130px;
+	width: 280px;
+	margin: 10px;
+}
 #hold_words {
 	display: inline-block;
 	height: 90px;
@@ -46,7 +105,7 @@
 	display: inline-block;
 	height: 90px;
 	vertical-align: top;
-	margin: 15px 10px 0px 0px;
+	margin: 15px 15px 0px 0px;
 }
 #hold_buttons {
 	display: inline-block;
@@ -70,6 +129,7 @@
 	width: 490px;
 	height: 500px;
 	margin: 0px auto 0px auto;
+	-webkit-animation-duration: 1s;
 }
 #simon {
 }
@@ -120,20 +180,24 @@
 	position: absolute;
 	top: -15px;
 	left: 40px;
+	-webkit-animation-delay: .7s;
 }
 #hold_yellow_simon {
 	position: absolute;
 	top: 318px;
+	-webkit-animation-delay: 1.15s;
 }
 #hold_red_simon {
 	position: absolute;
 	top: 10px;
 	left: 20px;
+	-webkit-animation-delay: .85s;
 }
 #hold_blue_simon {
 	position: absolute;
 	top: 337px;
 	left: 27px;
+	-webkit-animation-delay: 1s;
 }
 .large_input {
 	font-family: 'montserrat'; sans-serif;
@@ -254,4 +318,129 @@
 	float: right;
 	display: block;
 	margin: 10px 32px 10px 50px;
+}
+.tiny_dan {
+	height: 53px;
+	opacity: .3;
+	cursor: pointer;
+}
+.tiny_dan:hover {
+	opacity: 1;
+}
+#green_dan {
+	position: absolute;
+	top: 80px;
+	left: 140px;
+}
+#yellow_dan {
+	position: absolute;
+	bottom: -9px;
+	left: 140px;
+}
+#red_dan {
+	position: absolute;
+	top: 74px;
+	right: 170px;
+}
+#blue_dan {
+	position: absolute;
+	bottom: 1px;
+	right: 175px;
+}
+#simon_dan {
+	display: block;
+	position: relative;
+	top: -70px;
+	height: 140px;
+	width: 1080px;
+	margin: 0px auto 0px auto;
+}
+#green_yes {
+	width: 80px;
+	position: absolute;
+	top: 35px;
+	left: 937px;
+}
+#green_yes:active {
+	top: 36px;
+}
+#green_no {
+	width: 80px;
+	position: absolute;
+	top: 75px;
+	left: 937px;
+}
+#green_no:active {
+	top: 76px;
+}
+#red_hint_input {
+	width: 85px;
+	position: absolute;
+	top: 36px;
+	left: 930px;
+}
+#red_hint_submit {
+	width: 91px;
+	position: absolute;
+	top: 75px;
+	left: 930px;
+}
+#red_hint_submit:active {
+	top: 76px;
+}
+#yellow_hint_input1 {
+	width: 85px;
+	position: absolute;
+	top: 24px;
+	left: 930px;
+}
+#yellow_hint_input2 {
+	width: 85px;
+	position: absolute;
+	top: 59px;
+	left: 930px;
+}
+#yellow_hint_submit {
+	width: 91px;
+	position: absolute;
+	top: 94px;
+	left: 930px;
+}
+#yellow_hint_submit:active {
+	top: 95px;
+}
+.hint_button {
+	width: 48px;
+	height: 60px;
+	cursor: pointer;
+	border-radius: 6px;
+	background-color: white;
+	position: absolute;
+}
+.hint_button:active {
+	margin-top: 1px;
+}
+#pick_blue1 {
+	top: 2px;
+	left: 923px;
+	background-image: url(../img/blue1.png);
+	background-size: 48px 60px;
+}
+#pick_blue2 {
+	top: 2px;
+	left: 983px;
+	background-image: url(../img/blue2.png);
+	background-size: 48px 60px;
+}
+#pick_blue3 {
+	top: 72px;
+	left: 923px;
+	background-image: url(../img/blue3.png);
+	background-size: 48px 60px;
+}
+#pick_blue4 {
+	top: 72px;
+	left: 983px;
+	background-image: url(../img/blue4.png);
+	background-size: 48px 60px;
 }

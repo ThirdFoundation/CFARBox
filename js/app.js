@@ -65,8 +65,8 @@ cfarBox.controller('CipherController', ['$scope', '$routeParams', '$location', '
 
 cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$timeout', function($scope, $routeParams, $location, $timeout) {
     $scope.view = $routeParams.view;
+    $scope.whichHint = "none";
     $scope.dimDan = true;
-    $scope.haveHelpedDan = false;
     $scope.greenAnswered = false;
     $scope.greenWrong = false;
     $scope.greenTries = 0;
@@ -79,11 +79,19 @@ cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$
     $scope.yellowAnswered = false;
     $scope.yellowWrong = false;
     $scope.yellowTries = 0;
+    $scope.allAnswered = false;
+    $scope.goNext = function() {
+      $location.path('/unlocked');
+    }
     $scope.submitGreen = function() {
       $scope.toggleGreen = function() {$scope.greenWrong = !$scope.greenWrong};
       $scope.greenTries++;
       if ($scope.green === "37") {
         $scope.greenAnswered = true;
+        if ($scope.redAnswered && $scope.blueAnswered && $scope.yellowAnswered) {
+          $scope.whichHint = "all";
+          $timeout($scope.goNext, 3000);
+        }
       } else {
         $scope.greenWait = 15 * Math.pow(2, $scope.greenTries);
         $scope.greenWarning = "INCORRECT. Submissions disabled for " + $scope.greenWait + " seconds.";
@@ -112,6 +120,10 @@ cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$
       }
       if ($scope.redCorrect) {
         $scope.redAnswered = true;
+        if ($scope.greenAnswered && $scope.blueAnswered && $scope.yellowAnswered) {
+          $scope.whichHint = "all";
+          $timeout($scope.goNext, 3000);
+        }
       } else {
         $scope.redWait = 15 * Math.pow(2, $scope.redTries);
         $scope.redWarning = "INCORRECT. Submissions disabled for " + $scope.redWait + " seconds.";
@@ -137,6 +149,10 @@ cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$
       }
       if ($scope.blueCorrect) {
         $scope.blueAnswered = true;
+        if ($scope.redAnswered && $scope.greenAnswered && $scope.yellowAnswered) {
+          $scope.whichHint = "all";
+          $timeout($scope.goNext, 3000);
+        }
       } else {
         $scope.blueWait = 15 * Math.pow(2, $scope.blueTries);
         $scope.blueWarning = "INCORRECT. Submissions disabled for " + $scope.blueWait + " seconds.";
@@ -161,11 +177,94 @@ cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$
       }
       if ($scope.yellowCorrect) {
         $scope.yellowAnswered = true;
+        if ($scope.redAnswered && $scope.blueAnswered && $scope.greenAnswered) {
+          $scope.whichHint = "all";
+          $timeout($scope.goNext, 3000);
+        }
       } else {
         $scope.yellowWait = 15 * Math.pow(2, $scope.yellowTries);
         $scope.yellowWarning = "INCORRECT. Submissions disabled for " + $scope.yellowWait + " seconds.";
         $scope.toggleYellow();
         $timeout($scope.toggleYellow, $scope.yellowWait*1000);
+      }
+    }
+    $scope.hasHelpedGreen = false;
+    $scope.greenWords = "Okay, I know where there's a hint for this one, but it's stored in another one of those \"humans only\" parts of the database.  Help me unlock it?  I haven't been able to answer this question, and I only get one try:"
+    $scope.hintGreen = function() {
+      $scope.dimDan = false;
+      $scope.whichHint = "green";
+    }
+    $scope.greenHintWrong = function() {
+      $scope.hasHelpedGreen = true;
+      $scope.greenWords = "Oops!  Looks like you guessed wrong—we're locked out now, and I can't access the hint.  No worries, though; at least I know the right answer for next time, once they take you guys away."
+    }
+    $scope.greenHintRight = function() {
+      $scope.hasHelpedGreen = true;
+      $scope.greenWords = "Thanks!  I think I'm starting to figure out this whole \"human culture\" thing.  Your hint is this: if the unknown rectangle's width is X, then the 43m² rectangle's width is 10 - X.  Hope that helps!"
+    }
+    $scope.hasHelpedRed = false;
+    $scope.redWords = "So, they've put up all these \"humans only\" firewalls to keep me out of the mainframe.  I know exactly where your hint is located—want to help me retrieve it? I think the answer has something to do with movies...";
+    $scope.hintRed = function() {
+      $scope.dimDan = false;
+      $scope.whichHint = "red";
+    }
+    $scope.submitRedHint = function() {
+      $scope.hasHelpedRed = true;
+      $scope.correct = false;
+      if (this.redGuess.toLowerCase() === "kickball") {
+        $scope.correct = true;
+      }
+      if (this.redGuess.toLowerCase() === "dodgeball") {
+        $scope.correct = true;
+      }
+      if (this.redGuess.toLowerCase() === "ball") {
+        $scope.correct = true;
+      }
+      if (this.redGuess.toLowerCase() === "handball") {
+        $scope.correct = true;
+      }
+      if (this.redGuess.toLowerCase() === "kick ball") {
+        $scope.correct = true;
+      }
+      if ($scope.correct) {
+        $scope.redWords = "Oh, man, I was WAY off.  I think I see where my algorithm was wrong, though, so thanks for the lesson!  Here's your hint: there's a fairly narrow range of numbers whose cubes have five digits.  Good luck!";
+      } else {
+        $scope.redWords = "Aw, man, really?  You're like the twelfth group to get that one wrong.  I'm starting to think none of you are taking this seriously.  Maybe if you'd been locked in here as long as I have, you'd put in a little more effort..."
+      }
+    }
+    $scope.hasHelpedBlue = false;
+    $scope.blueWords = "I don't know why they're making it so hard for me to access the information you need.  I know exactly where it's stored, but I can't get past these anti-algorithm blocks.  You scratch my back, and I'll scratch yours!"
+    $scope.hintBlue = function() {
+      $scope.dimDan = false;
+      $scope.whichHint = "blue";
+    }
+    $scope.pickRight = function() {
+      $scope.hasHelpedBlue = true;
+      $scope.blueWords = "Ha!  Go superteam!  They're trying to keep us locked up in here, but together, we're totally going to escape!  Here's your hint: Start with Q2 and look for something you can rule out immediately.";
+    }
+    $scope.pickWrong = function() {
+      $scope.hasHelpedBlue = true;
+      $scope.blueWords = "So much for humanity's superior problem-solving skills.  Now I have to wait Ohm-knows-how-long before I can find another backdoor to that part of the mainframe.  You're lucky I'm programmed to be nice.";
+    }
+    $scope.hasHelpedYellow = false;
+    $scope.yellowWords = "Man.  You think YOU'RE trapped?  Try living in here.  Everywhere I turn, all these questions they KNOW I can't answer.  I wish I knew why they don't trust me.  Little help, so I can go grab your clue for you?"
+    $scope.hintYellow = function() {
+      $scope.dimDan = false;
+      $scope.whichHint = "yellow";
+    }
+    $scope.submitYellowHint = function() {
+      $scope.hasHelpedYellow = true;
+      $scope.correct = true;
+      if (this.yellowGuess1.toLowerCase() !== 'steak') {
+        $scope.correct = false;
+      }
+      if (this.yellowGuess2.toLowerCase() !== 'heart') {
+        $scope.correct = false;
+      }
+      if ($scope.correct) {
+        $scope.yellowWords = "Was that a pun? Hang on, I looked this up—I'm supposed to say that they've 'groan' on me!  Anyway, here's your hint: boil the first statement down to \"If C, then B,\" (or \"If ~B, then ~C\") and see where that takes you.";
+      } else {
+        $scope.yellowWords = "Nope.";
       }
     }
 }]);

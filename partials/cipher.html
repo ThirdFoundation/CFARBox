@@ -1,7 +1,7 @@
 <section class="container_1080">
 	<div class="clear_50"></div>
-	<img id="novan" class="center" src="img/novan.png">
-	<div class="center" ng-mouseenter="dimDan = true">
+	<img id="novan" class="center animated fadeInUp" src="img/novan.png" >
+	<div class="center animated fadeIn" id="cipher_submit" ng-mouseenter="dimDan = true">
 		<input class="large_input" autofocus ng-model="animal">
 		<button class="big button" ng-click="submit()" ng-disabled="showWarning">Submit</button>
 	</div>
@@ -9,10 +9,9 @@
 	<div class="clear_25">
 		<span id="warning" class="mont thin small center" ng-show="showWarning">{{warning}}</span>
 	</div>
-	<div id="hold_dan"
-				ng-class="{faded: dimDan, test_white: true}"
-				ng-mouseenter="dimDan = false">
-		<img id="dan_small" src="img/daniel.png">
+	<div id="hold_dan" ng-class="{faded:				dimDan,
+																test_white:		true}">
+		<img id="dan_small" src="img/daniel.png" ng-mouseenter="dimDan = false">
 		<div id="hold_words" ng-hide="dimDan">
 			<span class="mont thin small">{{danMsg}}</span>
 		</div>
