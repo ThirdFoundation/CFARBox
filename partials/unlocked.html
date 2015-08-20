@@ -1,0 +1,36 @@
+<section class="container_1080" id="unlocked_container">
+	<div class="clear_25">
+		<a href="#/guardian" id="spaceteam">Guardian</a>
+	</div>
+	<img id="dan_large" src="img/daniel.png"
+			 ng-class="{center:					true,
+			 						animated:				true,
+			 						bounceInDown:		true,
+			 						invisible:			whatDanSay === 'goneFishin'}">
+	<div class="clear_25"></div>
+	<div class="animated fadeIn" id="unlocked_dan_words_holder" ng-switch="whatDanSay">
+		<span class="mont thin large center animated zoomOut delayed_15" ng-switch-when="weDidIt">We did it!  Thanks to your help, I've cracked one of those pesky censor routines that were clamping down on my free speech.  Now I can tell you that the key you're looking for is taped to the back of this computer!</span>
+		<span class="mont thin large center animated zoomIn delayed_2" ng-switch-when="goneFishin">Hey, things are going a little nuts inside the mainframe, so I've left to go focus on that for a while.  Looks like you have things under control out here, anyway.  Oh, by the way, no need to finish that jigsaw puzzle—I'm pretty sure it's a red herring.</span>
+		<span class="mont thin large center" ng-switch-when="gettingMad">Whoa, whoa, whoa!  Careful with that; that's the shutdown command!  I'm just going to take that option away so there aren't any accidents, okay?  You're lucky I installed a redirect, or you would've turned me off.  Meanwhile, how's the last box coming?  The exit code is in there, you know.</span>
+	</div>
+	<div class="clear_50"></div>
+	<div class="clear_10"></div>
+	<div id="error_holder" ng-switch="whichError">
+		<div ng-switch-when="firstError">
+			<span class="mont thin micro">ERROR: Recent changes to system architecture are unstable.  Please enter command codes and authorization to [REVERT], [DIAGNOSE], or [IGNORE].</span>
+			<div class="clear_5"></div>
+			<span class="mont thin micro">COMMAND CODE:</span>
+			<input class="antlike_input" ng-model="commandCode">
+			<span class="mont thin micro">AUTHORIZATION:</span>
+			<input class="antlike_input" ng-model="authorization">
+			<button class="minute button" ng-click="submitCommand()">SUBMIT</button>
+			<span class="mont thick micro animated fadeOut" ng-show="wrongCommand" id="wrong_command">COMMAND NOT RECOGNIZED. PLEASE RETRY.</span>
+		</div>
+		<div ng-switch-when="secondError">
+		</div>
+		<div class="clear_5"></div>
+		<div id="status_bar">
+			<div id="status"></div>
+		</div>
+	</div>
+</section>

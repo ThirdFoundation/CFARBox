@@ -14,6 +14,18 @@ cfarBox.config(function($routeProvider) {
     }).when('/unlocked', {
       templateUrl: 'partials/unlocked.html',
       controller:  'UnlockedController'
+    }).when('/guardian', {
+      templateUrl: 'partials/guardian.html',
+      controller:  'GuardianController'
+    }).when('/coordination', {
+      templateUrl: 'partials/coordination.html',
+      controller:  'CoordinationController'
+    }).when('/victory', {
+      templateUrl: 'partials/victory.html',
+      controller:  'VictoryController'
+    }).when('/defeat', {
+      templateUrl: 'partials/defeat.html',
+      controller:  'DefeatController'
     }).otherwise({
       redirectTo: '/start'
     });
@@ -269,9 +281,314 @@ cfarBox.controller('SimonController', ['$scope', '$routeParams', '$location', '$
     }
 }]);
 
-cfarBox.controller('UnlockedController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+cfarBox.controller('UnlockedController', ['$scope', '$routeParams', '$location', '$timeout', function($scope, $routeParams, $location, $timeout) {
     $scope.view = $routeParams.view;
-    $http.get('json/' + $routeParams.view + '.json').success(function(data) {
-      $scope.snippets = data;
-    });
+    $scope.whatDanSay = "weDidIt";
+    $scope.switch1 = function() {$scope.whatDanSay = "goneFishin"};
+    $timeout($scope.switch1, 14600);
+    $scope.wrongCommand = false;
+    $scope.whichError = "firstError";
+    $scope.toggleCommand = function() {
+      $scope.wrongCommand = !$scope.wrongCommand;
+    }
+    $scope.submitCommand = function() {
+      $scope.checkCommand = false;
+      if (this.commandCode.toUpperCase() === "CAMPE") {
+        if (this.authorization.toUpperCase() === "ASIMOV") {
+          $scope.checkCommand = true;
+        }
+      }
+      if ($scope.checkCommand) {
+        $scope.whatDanSay = "gettingMad";
+        $scope.whichError = "secondError";
+      } else {
+        $scope.toggleCommand();
+        $timeout($scope.toggleCommand, 5000);
+      }
+    }
+}]);
+
+cfarBox.controller('GuardianController', ['$scope', '$routeParams', '$location', '$timeout', function($scope, $routeParams, $location, $timeout) {
+    $scope.view = $routeParams.view;
+    $scope.isDanDead = false;
+    $scope.flickerDan = function() {
+      $scope.isDanDead = !$scope.isDanDead;
+    }
+    $scope.killDan = function() {
+      $scope.isDanDead = true;
+      $timeout($scope.flickerDan, 100);
+    }
+    $timeout($scope.killDan, 2500);
+}]);
+
+cfarBox.controller('CoordinationController', ['$scope', '$routeParams', '$timeout', '$location', function($scope, $routeParams, $timeout, $location) {
+    $scope.view = $routeParams.view;
+    $scope.successes = 0;
+    $scope.isANumber = /^(-)?[0-9]+([,.][0-9]+)?$/g;
+    $scope.checkq01 = function() {
+      if ($scope.q01 === "28") {
+        $scope.q01Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq02 = function() {
+      if ($scope.q02 === "16") {
+        $scope.q02Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq03 = function() {
+      if ($scope.q03 === "07") {
+        $scope.q03Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq04 = function() {
+      if ($scope.q04 === "74") {
+        $scope.q04Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq05 = function() {
+      if ($scope.q05 === "34") {
+        $scope.q05Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq06 = function() {
+      if ($scope.q06 === "2425") {
+        $scope.q06Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq07 = function() {
+      if ($scope.q07 === "41") {
+        $scope.q07Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq08 = function() {
+      if ($scope.q08 === "47") {
+        $scope.q08Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq09 = function() {
+      if ($scope.q09 === "72") {
+        $scope.q09Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq10 = function() {
+      if ($scope.q10 === "0923") {
+        $scope.q10Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq11 = function() {
+      if ($scope.q11 === "294813") {
+        $scope.q11Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq12 = function() {
+      if ($scope.q12 === "21") {
+        $scope.q12Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq13 = function() {
+      if ($scope.q13 === "44") {
+        $scope.q13Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq14 = function() {
+      if ($scope.q14 === "312") {
+        $scope.q14Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq15 = function() {
+      if ($scope.q15 === "8") {
+        $scope.q15Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq16 = function() {
+      if ($scope.q16 === "412758") {
+        $scope.q16Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq17 = function() {
+      if ($scope.q17 === "5003") {
+        $scope.q17Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq18 = function() {
+      if ($scope.q18 === "2242") {
+        $scope.q18Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq19 = function() {
+      if ($scope.q19 === "18") {
+        $scope.q19Answered = true;
+        $scope.successes++;
+      }
+    }
+     $scope.checkq20 = function() {
+      if ($scope.q20 === "50") {
+        $scope.q20Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq21 = function() {
+      if ($scope.q21 === "184517") {
+        $scope.q21Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq22 = function() {
+      if ($scope.q22 === "39") {
+        $scope.q22Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq23 = function() {
+      if ($scope.q23 === "90") {
+        $scope.q23Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq24 = function() {
+      if ($scope.q24 === "510") {
+        $scope.q24Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq25 = function() {
+      if ($scope.q25 === "15") {
+        $scope.q25Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq26 = function() {
+      if ($scope.q26 === "5219") {
+        $scope.q26Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq27 = function() {
+      if ($scope.q27 === "15") {
+        $scope.q27Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq28 = function() {
+      if ($scope.q28 === "109") {
+        $scope.q28Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq29 = function() {
+      if ($scope.q29 === "57") {
+        $scope.q29Answered = true;
+        $scope.successes++;
+      }
+    }
+     $scope.checkq30 = function() {
+      if ($scope.q30 === "523925") {
+        $scope.q30Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq31 = function() {
+      if ($scope.q31 === "-38") {
+        $scope.q31Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq32 = function() {
+      if ($scope.q32 === "45") {
+        $scope.q32Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq33 = function() {
+      if ($scope.q33 === "54") {
+        $scope.q33Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq34 = function() {
+      if ($scope.q34 === "16") {
+        $scope.q34Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq35 = function() {
+      if ($scope.q35 === "58134933") {
+        $scope.q35Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq36 = function() {
+      if ($scope.q36 === "3") {
+        $scope.q36Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq37 = function() {
+      if ($scope.q37 === "10") {
+        $scope.q37Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq38 = function() {
+      if ($scope.q38 === "51") {
+        $scope.q38Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq39 = function() {
+      if ($scope.q39 === "550824") {
+        $scope.q39Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq40 = function() {
+      if ($scope.q40 === "52") {
+        $scope.q40Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq41 = function() {
+      if ($scope.q41 === "475359") {
+        $scope.q41Answered = true;
+        $scope.successes++;
+      }
+    }
+    $scope.checkq42 = function() {
+      $scope.isANumber = /^(-)?[0-9]+([,.][0-9]+)?$/g;
+      if ($scope.isANumber.test($scope.q42)) {
+        $scope.q42Answered = true;
+        $scope.successes++;
+        if ($scope.successes >= 40) {
+          $location.path('/victory');
+        } else {
+          $location.path('/defeat');
+        }
+      }
+    }
+}]);
+
+cfarBox.controller('VictoryController', ['$scope', '$routeParams', function($scope, $routeParams) {
+    $scope.view = $routeParams.view;
+}]);
+
+cfarBox.controller('DefeatController', ['$scope', '$routeParams', function($scope, $routeParams) {
+    $scope.view = $routeParams.view;
 }]);

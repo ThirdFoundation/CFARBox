@@ -11,12 +11,20 @@ a {
 	color: white;
 	text-shadow: 0px 0px 2px black;
 }
+.code {
+	font-family: 'Inconsolata';
+	color: #69FF00;
+	font-size: 14pt;
+}
 .thin {
 	font-weight: 400;
 	letter-spacing: .5px;
 }
 .thick {
 	font-weight: 700;
+}
+.micro {
+	font-size: 9px;
 }
 .tiny {
 	font-size: 10pt;
@@ -59,8 +67,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 .button:disabled {
 	opacity: .4;
 }
-.little {
+.minute {
 	border-radius: 2px;
+	font-size: 9pt;
+}
+.little {
+	border-radius: 3px;
 	font-size: 12pt;
 }
 .big {
@@ -81,4 +93,12 @@ select {
 #dan_intro {
 	-webkit-animation-delay: 1.2s;
 	-webkit-animation-duration: 2.5s;
+}
+.decrypt_input {
+	border: 2px solid #69FF00;
+	background-color: black;
+	color: #69FF00;
+	font-family: 'Inconsolata';
+	margin-top: 5px;
+	width: 280px;
 }
